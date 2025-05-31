@@ -1,0 +1,201 @@
+﻿<Window x:Class="DoAnQLThuVien.Data.SuaNhanSu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoAnQLThuVien.Data"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen" 
+    Height="700" Width="1100">
+    <Grid Background="White">
+
+        <Border Margin="790,110,160,394" 
+            Width="150"
+            Height="200"
+            BorderBrush="Black"
+            BorderThickness="1">
+            <Image x:Name="imagiPicture"/>
+        </Border>
+        <Border Margin="790,315,160,354" Background="#FF21519E" CornerRadius="10" >
+            <Button x:Name="browsebtn"
+                Content="Browse" 
+                Click="browsebtn_Clck" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Tahoma" FontSize="16"/>
+        </Border>
+        <Label Content="Mã nhân sự" 
+            HorizontalAlignment="Left" 
+            Margin="82,86,0,0" 
+            VerticalAlignment="Top" 
+            FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <TextBox x:Name="maTatCVtxt"
+        IsReadOnly="True"
+        HorizontalAlignment="Left" 
+        Margin="212,86,0,0" 
+        VerticalAlignment="Top" 
+        Width="60" 
+        FontFamily="Tahoma" FontSize="16" 
+        Height="36" BorderBrush="Black"/>
+        <TextBox x:Name="maNhanSutxt"
+             IsReadOnly="True"
+            HorizontalAlignment="Left" 
+            Margin="277,86,0,0" 
+            VerticalAlignment="Top" 
+            Width="110" 
+            FontFamily="Tahoma" FontSize="16" 
+            Height="36" BorderBrush="Black"/>
+
+        <Label Content="Họ và tên" 
+            HorizontalAlignment="Left" 
+            Margin="82,136,0,0" 
+            VerticalAlignment="Top" 
+            FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <TextBox x:Name="tenNhanSutxt"
+        HorizontalAlignment="Left" 
+        Margin="212,136,0,0" 
+        VerticalAlignment="Top" 
+        Width="350" 
+        FontFamily="Tahoma" FontSize="16" 
+        Height="36" BorderBrush="Black"/>
+        <Label Content="Giới tính" 
+            HorizontalAlignment="Left" 
+            Margin="82,186,0,0" 
+            VerticalAlignment="Top" FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <ComboBox x:Name="gioiTinhcb" 
+        IsReadOnly="True"
+        HorizontalAlignment="Left" 
+        Margin="212,186,0,0" 
+        VerticalAlignment="Top" 
+        Width="200" Height="36"
+        FontFamily="Tahoma" FontSize="16" BorderBrush="Black"/>
+        <Label Content="Ngày sinh" 
+            HorizontalAlignment="Left" 
+            Margin="82,236,0,0" 
+            VerticalAlignment="Top" FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <Label Content="Số CCCD" 
+            HorizontalAlignment="Left" 
+            Margin="82,286,0,0" 
+            VerticalAlignment="Top" 
+            FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <TextBox x:Name="soCCCDtxt"
+        HorizontalAlignment="Left" 
+        Margin="212,286,0,0" 
+        VerticalAlignment="Top" 
+        Width="350" 
+        FontFamily="Tahoma" FontSize="16"
+        Height="36" BorderBrush="Black"/>
+        <Label Content="Nơi ở hiện tại" 
+            HorizontalAlignment="Left" 
+            Margin="77,0,0,0" 
+            VerticalAlignment="Center" 
+            FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <TextBox x:Name="noiOtxt"
+        HorizontalAlignment="Left" 
+        Margin="217,335,0,0" 
+        VerticalAlignment="Top"
+        TextWrapping="Wrap"
+        Width="345" 
+        FontFamily="Tahoma" FontSize="16"
+        Height="132" BorderBrush="Black"/>
+        <Label Content="Số điện thoại" 
+            HorizontalAlignment="Left" 
+            Margin="77,479,0,0" 
+            VerticalAlignment="Top" 
+            FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <TextBox x:Name="soDienThoaitxt"
+        HorizontalAlignment="Left" 
+        Margin="228,477,0,0" 
+        VerticalAlignment="Top" 
+        Width="200" 
+        FontFamily="Tahoma" FontSize="16"
+        Height="34" BorderBrush="Black"/>
+        <Label Content="Email" 
+            HorizontalAlignment="Left" 
+            Margin="77,529,0,0" 
+            VerticalAlignment="Top" FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <TextBox x:Name="emailtxt" 
+        HorizontalAlignment="Left" 
+        Margin="228,527,0,0" 
+        VerticalAlignment="Top" 
+        Width="200" 
+        Height="34" 
+        FontFamily="Tahoma" FontSize="16" BorderBrush="Black"/>
+        <Label Content="Ngày bắt đầu" 
+            HorizontalAlignment="Left" 
+            Margin="683,390,0,0" 
+            VerticalAlignment="Top" FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+
+        <Label Content="Lương cơ bản" 
+            HorizontalAlignment="Left" 
+            Margin="685,494,0,0" 
+            VerticalAlignment="Top" FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <TextBox x:Name="luongCoBantxt" 
+            HorizontalAlignment="Left" 
+            Margin="845,494,0,0" 
+            VerticalAlignment="Top" 
+            Width="200" 
+            Height="34" 
+            FontFamily="Tahoma" FontSize="16" BorderBrush="Black"/>
+
+        <Label Content="Loại nhân sự" 
+            HorizontalAlignment="Left" 
+            Margin="686,540,0,0" 
+            VerticalAlignment="Top" FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <TextBox x:Name="loaiNhanSutxt" 
+            IsReadOnly="True"
+            HorizontalAlignment="Left" 
+            Margin="846,540,0,0" 
+            VerticalAlignment="Top" 
+            Width="200" 
+            Height="34" 
+            FontFamily="Tahoma" FontSize="16" BorderBrush="Black"/>
+
+
+        <Border Margin="480,610,430,44" CornerRadius="20" Background="#FF3B27C8">
+            <Button x:Name="savebtn"
+                Content="Lưu nhân sự" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                FontFamily="Tahoma" FontSize="16" 
+                Click="savebtn_Click" 
+                BorderBrush="{x:Null}" 
+                Foreground="White" Background="{x:Null}" Height="50" Width="190"/>
+        </Border>
+        <TextBlock Text="Enter New Employee Info"
+            Margin="357,15,0,634"
+            HorizontalAlignment="Left"
+            FontFamily="Tahoma"
+            Foreground="White" FontSize="34" FontWeight="Bold"/>
+        <Border Margin="27,635,883,19" CornerRadius="20" Background="#FF3B27C8">
+            <Button x:Name="backbtn"
+                Content="Quay lại" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                FontFamily="Tahoma" FontSize="16" 
+                Click="backbtn_Click" 
+                BorderBrush="{x:Null}" 
+                Foreground="White" Background="{x:Null}" Width="190" Height="50"/>
+        </Border>
+        <Label Content="Công việc" 
+            HorizontalAlignment="Left" 
+            Margin="683,446,0,0" 
+            VerticalAlignment="Top" FontFamily="Tahoma" FontSize="16" Foreground="#FF0E0E0E"/>
+        <ComboBox x:Name="congVieccb" 
+            HorizontalAlignment="Left" 
+            Margin="843,446,0,0" 
+            VerticalAlignment="Top" 
+            Width="200" 
+            Height="34" 
+            FontFamily="Tahoma" FontSize="16" BorderBrush="Black" SelectionChanged="congVieccb_SelectionChanged"/>
+
+        <ComboBox x:Name="namcb" HorizontalAlignment="Left" Margin="217,240,0,0" VerticalAlignment="Top" Width="70" FontFamily="Tahoma" FontSize="16"/>
+        <ComboBox x:Name="thangcb" HorizontalAlignment="Left" Margin="292,240,0,0" VerticalAlignment="Top" Width="60" FontFamily="Tahoma" FontSize="16"/>
+        <ComboBox x:Name="ngaycb" HorizontalAlignment="Left" Margin="357,240,0,0" VerticalAlignment="Top" Width="60" FontFamily="Tahoma" FontSize="16"/>
+
+        <ComboBox x:Name="nambatdaucb" HorizontalAlignment="Left" Margin="845,401,0,0" VerticalAlignment="Top" Width="70" FontFamily="Tahoma" FontSize="16"/>
+        <ComboBox x:Name="thangbatdaucb" HorizontalAlignment="Left" Margin="920,401,0,0" VerticalAlignment="Top" Width="60" FontFamily="Tahoma" FontSize="16"/>
+        <ComboBox x:Name="ngaybatdaucb" HorizontalAlignment="Left" Margin="985,401,0,0" VerticalAlignment="Top" Width="60" FontFamily="Tahoma" FontSize="16"/>
+
+    </Grid>
+</Window>

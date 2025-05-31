@@ -1,0 +1,184 @@
+﻿<Window x:Class="DoAnQLThuVien.Data.ThemKeSach"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoAnQLThuVien.Data"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen" 
+        Height="400" Width="600">
+
+    <Window.Resources>
+        <!-- Define the DropShadowEffect as a resource -->
+        <DropShadowEffect x:Key="WindowShadow" BlurRadius="10" ShadowDepth="3" Opacity="0.2" Color="Black"/>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="#FFBDBDBD"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="#FF2196F3"/>
+                </Trigger>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#FF2196F3"/>
+                    <Setter Property="BorderThickness" Value="1.5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="#FFBDBDBD"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="#FF2196F3"/>
+                </Trigger>
+                <Trigger Property="IsDropDownOpen" Value="True">
+                    <Setter Property="BorderBrush" Value="#FF2196F3"/>
+                    <Setter Property="BorderThickness" Value="1.5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.8"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Opacity" Value="0.6"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="White" 
+            BorderBrush="#FF2196F3" 
+            BorderThickness="2"
+            CornerRadius="10"
+            Effect="{StaticResource WindowShadow}">
+
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto" MinHeight="60.72"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Border Grid.Row="0" Background="#FF2196F3" CornerRadius="8,8,0,0">
+                <Label Content="THÊM KỆ SÁCH MỚI" 
+                       Foreground="White" 
+                       FontWeight="Bold" 
+                       FontSize="16"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       Padding="10"/>
+            </Border>
+
+            <!-- Form content -->
+            <Grid Grid.Row="1" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Row 1: Mã kệ sách -->
+                <Label Content="Mã kệ sách:" 
+                       Grid.Row="0" Grid.Column="0"
+                       Foreground="#FF424242"
+                       FontWeight="SemiBold"
+                       Margin="5" VerticalAlignment="Center"/>
+                <TextBox x:Name="maKeSachtxt" 
+                         Grid.Row="0" Grid.Column="1"
+                         Margin="5" Height="30"
+                         VerticalContentAlignment="Center"/>
+
+                <!-- Row 2: Tên kệ sách -->
+                <Label Content="Tên kệ sách:" 
+                       Grid.Row="1" Grid.Column="0"
+                       Foreground="#FF424242"
+                       FontWeight="SemiBold"
+                       Margin="5" VerticalAlignment="Center"/>
+                <TextBox x:Name="tenKeSachtxt" 
+                         Grid.Row="1" Grid.Column="1"
+                         Margin="5" Height="30"
+                         VerticalContentAlignment="Center"/>
+
+                <!-- Row 3: Loại kệ -->
+                <Label Content="Loại kệ:" 
+                       Grid.Row="2" Grid.Column="0"
+                       Foreground="#FF424242"
+                       FontWeight="SemiBold"
+                       Margin="5" VerticalAlignment="Center"/>
+                <TextBox x:Name="loaiKetxt" 
+                         Grid.Row="2" Grid.Column="1"
+                         Margin="5" Height="30"
+                         VerticalContentAlignment="Center"/>
+
+                <!-- Row 4: Thể loại kệ -->
+                <Label Content="Thể loại kệ:" 
+                       Grid.Row="3" Grid.Column="0"
+                       Foreground="#FF424242"
+                       FontWeight="SemiBold"
+                       Margin="5" VerticalAlignment="Center"/>
+                <ComboBox x:Name="TheLoaiKecb" 
+                          Grid.Row="3" Grid.Column="1"
+                          Margin="5" Height="30"
+                          VerticalContentAlignment="Center"/>
+
+                <!-- Row 5: Vị trí kệ -->
+                <Label Content="Vị trí kệ:" 
+                       Grid.Row="4" Grid.Column="0"
+                       Foreground="#FF424242"
+                       FontWeight="SemiBold"
+                       Margin="5" VerticalAlignment="Center"/>
+                <ComboBox x:Name="ViTriKecb" 
+                          Grid.Row="4" Grid.Column="1"
+                          Margin="5" Height="30"
+                          VerticalContentAlignment="Center"/>
+
+                <!-- Row 6: Số lượng sách tối đa -->
+                <Label Content="Số lượng sách tối đa:" 
+                       Grid.Row="5" Grid.Column="0"
+                       Foreground="#FF424242"
+                       FontWeight="SemiBold"
+                       Margin="5" VerticalAlignment="Center"/>
+                <TextBox x:Name="soLuongToiDatxt" 
+                         Grid.Row="5" Grid.Column="1"
+                         Margin="5" Height="30"
+                         VerticalContentAlignment="Center"/>
+            </Grid>
+
+            <!-- Button panel -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                        HorizontalAlignment="Right" Margin="0,15,0,0" Width="170">
+                <Button x:Name="dongbtn" Content="Đóng" 
+                        Width="80" Height="30" Margin="0,0,10,0"
+                        Background="White" Foreground="#FF2196F3"
+                        BorderBrush="#FF2196F3" BorderThickness="1"
+                        Click="dongbtn_Click"/>
+                <Button x:Name="thembtn" Content="Thêm" 
+                        Width="80" Height="30"
+                        Background="#FF2196F3" Foreground="White"
+                        BorderBrush="#FF2196F3" BorderThickness="1"
+                        Click="thembtn_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

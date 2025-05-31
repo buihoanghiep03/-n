@@ -1,0 +1,400 @@
+﻿<Window x:Class="DoAnQLThuVien.Data.GiaHanMuon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoAnQLThuVien.Data"
+        mc:Ignorable="d"
+        Title="Gia hạn mượn"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen"
+        Width="1000" Height="650"
+        FontFamily="Segoe UI">
+
+    <Window.Resources>
+        <!-- Hiệu ứng bóng đổ -->
+        <DropShadowEffect x:Key="DropShadowEffect" BlurRadius="10" ShadowDepth="2" Opacity="0.1" Color="#FF1976D2"/>
+
+        <!-- Template cho ComboBox ToggleButton -->
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Border" Grid.ColumnSpan="2" CornerRadius="4"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"/>
+                <Border Grid.Column="1" Margin="1" CornerRadius="0,4,4,0"
+                        BorderBrush="#FFBBDEFB" BorderThickness="0,0,0,0"/>
+                <Path x:Name="Arrow" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      Data="M0,0 L4,4 8,0 Z" Fill="#FF1976D2"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="Border" Property="Background" Value="#FFE3F2FD"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter TargetName="Border" Property="Background" Value="#FFBBDEFB"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!-- Style cho nút -->
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Background" Value="#FF1976D2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF1565C0"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FF0D47A1"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SecondaryButton" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF1976D2"/>
+            <Setter Property="BorderBrush" Value="#FF1976D2"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFE3F2FD"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FFBBDEFB"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style cho TextBox -->
+        <Style x:Key="FormTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FFBBDEFB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#FF424242"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#FF1976D2"/>
+                    <Setter Property="BorderThickness" Value="1.5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style cho ComboBox -->
+        <Style x:Key="FormComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FFBBDEFB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#FF424242"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton x:Name="ToggleButton" 
+                                          Template="{StaticResource ComboBoxToggleButton}" 
+                                          Grid.Column="2" 
+                                          Focusable="False"
+                                          IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                          ClickMode="Press"/>
+                            <ContentPresenter x:Name="ContentSite" 
+                                              Content="{TemplateBinding SelectedItem}"
+                                              HorizontalAlignment="Left" 
+                                              VerticalAlignment="Center"
+                                              Margin="5,0,0,0"/>
+                            <TextBox x:Name="PART_EditableTextBox"
+                                     Style="{x:Null}"
+                                     HorizontalAlignment="Left" 
+                                     VerticalAlignment="Center"
+                                     Margin="5,0,0,0"
+                                     Focusable="True"
+                                     Background="Transparent"
+                                     Visibility="Hidden"
+                                     IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup x:Name="Popup"
+                                   Placement="Bottom"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True" 
+                                   Focusable="False"
+                                   PopupAnimation="Slide">
+                                <Grid x:Name="DropDown"
+                                      SnapsToDevicePixels="True"
+                                      MinWidth="{TemplateBinding ActualWidth}"
+                                      MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder"
+                                            Background="White"
+                                            BorderThickness="1"
+                                            BorderBrush="#FFBBDEFB"
+                                            CornerRadius="4"/>
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="#FF64B5F6"/>
+                            </Trigger>
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter Property="BorderBrush" Value="#FF1976D2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Style cho DataGrid -->
+        <Style x:Key="ModernDataGrid" TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF424242"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="SelectionMode" Value="Extended"/>
+            <Setter Property="SelectionUnit" Value="FullRow"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserReorderColumns" Value="True"/>
+            <Setter Property="CanUserResizeColumns" Value="True"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="True"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ColumnHeaderHeight" Value="40"/>
+            <Setter Property="RowHeight" Value="35"/>
+            <Setter Property="ColumnHeaderStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#FF1976D2"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="10,0,10,0"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CellStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Foreground" Value="#FF424242"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="DataGridCell">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="{TemplateBinding BorderThickness}" 
+                                            SnapsToDevicePixels="True">
+                                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FFE3F2FD"/>
+                                <Setter Property="Foreground" Value="#FF424242"/>
+                                <Setter Property="BorderBrush" Value="#FFBBDEFB"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFF5F9FF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Style cho Label -->
+        <Style x:Key="FormLabel" TargetType="Label">
+            <Setter Property="Foreground" Value="#FF1976D2"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,5,0,2"/>
+        </Style>
+
+        <!-- Style cho Border -->
+        <Style x:Key="SectionBorder" TargetType="Border">
+            <Setter Property="Background" Value="#FFE3F2FD"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#FFBBDEFB"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.1" Color="#FF1976D2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFF0F8FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top Form Area -->
+        <Border Style="{StaticResource SectionBorder}" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Margin="10" Grid.Column="0">
+                    <Label Content="Mã phiếu mượn" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="maPhieuMuontxt" Style="{StaticResource FormTextBox}" IsReadOnly="True"/>
+
+                    <Label Content="Ngày mượn" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="ngayMuonhdp" Style="{StaticResource FormTextBox}" IsReadOnly="True"/>
+
+                    <Label Content="Ngày hẹn trả" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="ngayHenTradp" Style="{StaticResource FormTextBox}" IsReadOnly="True"/>
+                </StackPanel>
+
+                <StackPanel Margin="10" Grid.Column="1">
+                    <Label Content="Mã độc giả" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="maDocGiattxt" Style="{StaticResource FormTextBox}"/>
+
+                    <Label Content="Tên người mượn" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="TenNguoiMuontxt" Style="{StaticResource FormTextBox}" IsReadOnly="True"/>
+                </StackPanel>
+
+                <StackPanel Margin="10" Grid.Column="2">
+                    <Label Content="Ngày gia hạn lần 1" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="ngayGiaHanLan1" Style="{StaticResource FormTextBox}" IsReadOnly="True"/>
+
+                    <Label Content="Ngày gia hạn lần 2" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="ngayGiaHanLan2" Style="{StaticResource FormTextBox}" IsReadOnly="True"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Ghi chú và DataGrid -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Style="{StaticResource SectionBorder}" Grid.Row="0" Margin="10,0,10,5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Ghi chú" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="ghiChutxt" Grid.Row="1" IsReadOnly="True" TextWrapping="Wrap" 
+                             VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch"
+                             Style="{StaticResource FormTextBox}" Height="Auto"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Style="{StaticResource SectionBorder}" Margin="10,5,10,0">
+                <DataGrid x:Name="datagrid"
+                          AutoGenerateColumns="False"
+                          SelectionChanged="datagrd_SelectionChanged"
+                          FrozenColumnCount="2"
+                          HeadersVisibility="Column"
+                          Style="{StaticResource ModernDataGrid}" Margin="0,0,0,-6">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã sách" Binding="{Binding IdSach}" Width="200"/>
+                        <DataGridTextColumn Header="Tên sách" Binding="{Binding TenSach}" Width="*"/>
+                        <DataGridTextColumn Header="Tình trạng sách" Binding="{Binding TinhTrangSach}" Width="200"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+
+        <!-- Bottom Controls -->
+        <Border Grid.Row="2" Style="{StaticResource SectionBorder}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                    <Label Content="Hạn trả" Style="{StaticResource FormLabel}" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="namHanTracb" Style="{StaticResource FormComboBox}" Width="80" Margin="5,0"/>
+                    <ComboBox x:Name="thangHanTracb" Style="{StaticResource FormComboBox}" Width="40" Margin="5,0"/>
+                    <ComboBox x:Name="ngayHanTracb" Style="{StaticResource FormComboBox}" Width="40" Margin="5,0"/>
+
+                    <Label Content="Phí gia hạn" Style="{StaticResource FormLabel}" Margin="10,0,5,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="phiGiaHantxt" Style="{StaticResource FormTextBox}" Width="120"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Label x:Name="thongBaolb" FontSize="16" FontWeight="Bold" Foreground="Red" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                    <Button x:Name="dongbtn" Content="Đóng" Width="100" Height="36" Margin="5" Click="dongbtn_Click" Style="{StaticResource SecondaryButton}"/>
+                    <Button x:Name="giaHanbtn" Content="Gia hạn" Width="120" Height="36" Margin="5" Click="giaHanbtn_Click" Style="{StaticResource PrimaryButton}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

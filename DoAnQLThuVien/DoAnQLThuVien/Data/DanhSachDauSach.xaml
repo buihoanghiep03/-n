@@ -1,0 +1,309 @@
+﻿<UserControl x:Class="DoAnQLThuVien.Data.DanhSachDauSach"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoAnQLThuVien.Data"
+             mc:Ignorable="d" 
+             d:DesignHeight="780" d:DesignWidth="1300">
+
+    <UserControl.Resources>
+        <!-- Style chung cho nút icon -->
+        <Style x:Key="IconButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <!-- Header section -->
+        <Border Background="#FF2196F3" Margin="0,0,0,730">
+            <TextBlock Text="QUẢN LÝ ĐẦU SÁCH" 
+                       Foreground="White" 
+                       FontSize="20" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+        </Border>
+
+        <!-- Stats cards - Thu nhỏ kích thước -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,70,0,0">
+            <!-- Book titles card -->
+            <Border Background="White" CornerRadius="5" BorderBrush="#FFBBDEFB" BorderThickness="1" Width="300" Height="80" Margin="0,0,15,0">
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <Image Source="/Images/Icons/book.png" Width="40" Height="40" VerticalAlignment="Center"/>
+                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="TỔNG ĐẦU SÁCH" 
+                                   Foreground="#FF2196F3" 
+                                   FontSize="18" 
+                                   FontWeight="Bold"/>
+                        <TextBlock x:Name="tongDauSach" 
+                                   Foreground="#FF333333" 
+                                   FontSize="18" 
+                                   FontWeight="Bold"
+                                   Margin="0,3,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Book copies card -->
+            <Border Background="White" CornerRadius="5" BorderBrush="#FFBBDEFB" BorderThickness="1" Width="300" Height="80">
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <Image Source="/Images/Icons/print.png" Width="40" Height="40" VerticalAlignment="Center"/>
+                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="TỔNG BẢN IN" 
+                                   Foreground="#FF2196F3" 
+                                   FontSize="18" 
+                                   FontWeight="Bold"/>
+                        <TextBlock x:Name="tongSach" 
+                                   Foreground="#FF333333" 
+                                   FontSize="18" 
+                                   FontWeight="Bold"
+                                   Margin="0,3,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <!-- Search section -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,80,20,0">
+            <TextBox x:Name="timKiemTextBox" 
+                     Width="400" 
+                     Height="45" 
+                     Margin="0,0,10,0"
+                     FontSize="14" 
+                     Padding="10"
+                     VerticalContentAlignment="Center"
+                     BorderBrush="#FFBBDEFB"
+                     BorderThickness="1"/>
+
+            <Button x:Name="timKiembtn" 
+                    Content="TÌM KIẾM" 
+                    Width="100" 
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Background="#FF2196F3"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Click="timKiembtn_Click"
+                    FontWeight="SemiBold"/>
+
+            <Button x:Name="resetbtn" 
+                    Content="RESET" 
+                    Width="80" 
+                    Height="35"
+                    Background="#FFF5F5F5"
+                    Foreground="#FF2196F3"
+                    BorderBrush="#FFBBDEFB"
+                    BorderThickness="1"
+                    Click="resetbtn_Click"
+                    FontWeight="SemiBold"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <Border BorderBrush="#FFE0E0E0" BorderThickness="1" CornerRadius="0,0,5,5" Margin="20,160,20,120">
+            <DataGrid x:Name="datagrid" 
+             d:ItemsSource="{d:SampleData ItemCount=5}" 
+              SelectionChanged="datagrid_SelectionChanged" 
+              AutoGenerateColumns="False"
+              Background="White" 
+              RowHeight="120"
+                ColumnHeaderHeight="40"
+              AlternatingRowBackground="#FFF5F9FF"
+              GridLinesVisibility="None"
+              HeadersVisibility="Column"
+              CanUserResizeRows="False" Margin="0,0,0,-55">
+
+                <DataGrid.Resources>
+                    <!-- Column header style -->
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#FF2196F3"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="FontSize" Value="13"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="Padding" Value="10,5"/>
+                    </Style>
+
+                    <!-- Cell style -->
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="Foreground" Value="#FF333333"/>
+                        <Setter Property="FontSize" Value="13"/>
+                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                        <Setter Property="BorderBrush" Value="#FFE0E0E0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FFE3F2FD"/>
+                                <Setter Property="Foreground" Value="#FF000000"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="ẢNH BÌA" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Width="90" Height="108" Background="#FFF5F5F5" 
+                                HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <!-- Tỷ lệ 4x6 (90x135) nhưng giảm chiều cao để phù hợp với row height -->
+                                    <Image Source="{Binding AnhBia}" 
+                                   Stretch="Uniform" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"
+                                   MaxWidth="90"
+                                   MaxHeight="108"/>
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="TÊN SÁCH" Binding="{Binding TenSach}" Width="*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Padding" Value="5"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+
+                    <DataGridTextColumn Header="NĂM XB" Binding="{Binding NamXuatBan}" Width="110">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Padding" Value="5"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+
+                    <DataGridTextColumn Header="TỔNG SỐ" Binding="{Binding TongSoSach}" Width="110">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Padding" Value="5"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+
+                    <DataGridTextColumn Header="TRONG TV" Binding="{Binding SoLuongTrongThuVien}" Width="110">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Padding" Value="5"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+
+                    <DataGridTextColumn Header="ĐANG MƯỢN" Binding="{Binding SoLuongMuon}" Width="110">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Padding" Value="5"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+
+                    <DataGridTextColumn Header="ĐÃ MẤT" Binding="{Binding SoLuongMat}" Width="110">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Padding" Value="5"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <!-- Edit column -->
+                    <DataGridTemplateColumn Header="SỬA" Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="✏️" 
+                                ToolTip="Chỉnh sửa"
+                                Click="EditImage_Click"
+                                Tag="{Binding Id}"
+                                Style="{StaticResource IconButtonStyle}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Delete column -->
+                    <DataGridTemplateColumn Header="XÓA" Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="🗑️" 
+                                ToolTip="Xóa"
+                                Click="DeleteButton_Click"
+                                Tag="{Binding Id}"
+                                Style="{StaticResource IconButtonStyle}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- Bottom controls - Đặt ở giữa và cùng hàng -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+            <!-- Tổng số đầu sách -->
+            <Label x:Name="tongSoDauSachlb" Content="Tổng số ... đầu sách" Margin="0,0,370,0" VerticalAlignment="Center"/>
+
+            <!-- Nút thêm -->
+            <Button x:Name="ThemDauSachbtn" 
+                    Content="THÊM ĐẦU SÁCH" 
+                    Width="150" 
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Background="#FF4CAF50"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Click="ThemDauSachbtn_Click"
+                    FontWeight="SemiBold"/>
+
+            <Button x:Name="ThemSachbtn" 
+                    Content="THÊM SÁCH" 
+                    Width="120" 
+                    Height="35"
+                    Margin="0,0,20,0"
+                    Background="#FF2196F3"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Click="ThemSachbtn_Click"
+                    FontWeight="SemiBold"/>
+
+            <!-- Phân trang -->
+            <Label x:Name="tranglb" Content="Trang" VerticalAlignment="Center" Margin="220,0,5,0"/>
+            <ComboBox x:Name="trangcb" Width="66" VerticalAlignment="Center" SelectionChanged="trangcb_SelectionChanged"/>
+            <Label x:Name="tongTranglb" Content="trên tổng số ... trang" VerticalAlignment="Center" Margin="5,0,20,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,83 @@
+﻿<Window x:Class="DoAnQLThuVien.Data.InTheDocGia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoAnQLThuVien.Data"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="600">
+
+    <Grid Background="White">
+        <!-- Border for ID card (Căn cước công dân) -->
+        <Border x:Name="print" BorderBrush="Black" BorderThickness="2" Width="486" Height="306" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid>
+                <!-- Header Section -->
+                <Label Content="THƯ VIỆN TỈNH BẮC NINH" HorizontalAlignment="Center" Margin="0,6,0,0" FontFamily="Tahoma" FontSize="15" FontWeight="Bold" VerticalAlignment="Top"/>
+                <Label Content="BAC NINH LIBRARY" HorizontalAlignment="Center" Margin="0,30,0,237" FontFamily="Tahoma" FontSize="15" FontWeight="Bold"/>
+                <Image Margin="38,6,394,246" Source="/Images/Icons/logo.jpg" Width="50" Height="50"/>
+                <Border Margin="0,63,0,231" BorderBrush="Black" BorderThickness="0,1,0,0"/>
+                <!-- Image Section -->
+                <Border BorderBrush="Black" BorderThickness="1" Margin="41,108,361,74" Width="80" Height="120">
+                    <Image x:Name="DocGiaImage"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="393,6,39,246" Height="50">
+                    <Image x:Name="QRCodeImage" Margin="393,6,39,246" Height="80" Width="80"/>
+                </Border>
+
+                    <!-- Buttons and Form Fields -->
+                <Label Content="Họ tên độc giả" HorizontalAlignment="Left" Margin="159,82,0,0"
+                       VerticalAlignment="Top" FontFamily="Tahoma" FontSize="15" Height="35"
+                       VerticalContentAlignment="Center"/>
+                <TextBox x:Name="TenDGtxt" HorizontalAlignment="Left" Margin="272,82,0,0"
+                         TextWrapping="Wrap" VerticalAlignment="Top" Width="180"
+                         FontFamily="Tahoma" FontSize="15" Height="35"
+                         VerticalContentAlignment="Center"/>
+
+                <Label Content="Đơn vị cấp" HorizontalAlignment="Left" Margin="159,117,0,0"
+                       VerticalAlignment="Top" FontFamily="Tahoma" FontSize="15" Height="35" Width="113"
+                       VerticalContentAlignment="Center"/>
+                <TextBox HorizontalAlignment="Left" Margin="272,117,0,0" TextWrapping="Wrap"
+                         Text="Thư viện tỉnh Bắc Ninh" VerticalAlignment="Top" Width="180"
+                         FontFamily="Tahoma" FontSize="15" Height="35"
+                         VerticalContentAlignment="Center"/>
+
+                <Label Content="Ngày làm thẻ" HorizontalAlignment="Left" Margin="159,151,0,0"
+                       VerticalAlignment="Top" FontFamily="Tahoma" FontSize="15" Height="35" Width="113"
+                       VerticalContentAlignment="Center"/>
+                <TextBox x:Name="ngayLamThetxt" HorizontalAlignment="Left" Margin="272,151,0,0"
+                         VerticalAlignment="Top" Width="180" FontFamily="Tahoma" FontSize="15"
+                         Height="35" VerticalContentAlignment="Center"/>
+
+                <Label Content="Ngày hết hạn" HorizontalAlignment="Left" Margin="159,183,0,0"
+                       VerticalAlignment="Top" FontFamily="Tahoma" FontSize="15" Height="35" Width="113"
+                       VerticalContentAlignment="Center"/>
+                <TextBox x:Name="ngayHetHantxt" HorizontalAlignment="Left" Margin="272,183,0,0"
+                         VerticalAlignment="Top" Width="180" FontFamily="Tahoma" FontSize="15"
+                         Height="35" VerticalContentAlignment="Center"/>
+
+                <Label Content="Mã độc giả" HorizontalAlignment="Left" Margin="159,217,0,0"
+                       VerticalAlignment="Top" FontFamily="Tahoma" FontSize="15" Height="35" Width="113"
+                       VerticalContentAlignment="Center"/>
+                <TextBox x:Name="MaDocGiatxt" HorizontalAlignment="Left" Margin="272,217,0,0"
+                         TextWrapping="Wrap" VerticalAlignment="Top" Width="180"
+                         FontFamily="Tahoma" FontSize="15" Height="35"
+                         VerticalContentAlignment="Center"/>
+
+                <Label Content="Loại độc giả" HorizontalAlignment="Left" Margin="159,252,0,0"
+                       VerticalAlignment="Top" FontFamily="Tahoma" FontSize="15" Height="35" Width="113"
+                       VerticalContentAlignment="Center"/>
+                <TextBox x:Name="loaiDocGiatxt" HorizontalAlignment="Left" Margin="272,252,0,0"
+                         TextWrapping="Wrap" VerticalAlignment="Top" Width="180"
+                         FontFamily="Tahoma" FontSize="15" Height="35"
+                         VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <!-- Close and Print Buttons -->
+        <Button x:Name="closebtn" Content="Đóng" Margin="423,398,68,0" VerticalAlignment="Top" Height="35" FontFamily="Tahoma" FontSize="15" Click="closebtn_Click"/>
+        <Button x:Name="printbtn" Content="In thẻ" HorizontalAlignment="Left" Margin="310,398,0,0" VerticalAlignment="Top" Height="35" Width="100" FontFamily="Tahoma" FontSize="15" Click="printbtn_Click"/>
+    </Grid>
+</Window>

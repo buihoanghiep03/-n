@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=HONKAI;Initial Catalog=DATN;User ID=lam;Password=123;Encrypt=True;Trust Server Certificate=True"
+  }
+}
+

@@ -1,0 +1,394 @@
+﻿<UserControl x:Class="DoAnQLThuVien.Data.TongQuan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoAnQLThuVien.Data"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" d:DesignWidth="1320">
+
+    <UserControl.Resources>
+        <Style x:Key="FeatureCard" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Width" Value="280"/>
+            <Setter Property="Height" Value="360"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="3" Color="#40000000" Opacity="0.2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Background" Value="#005BAC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#0078D4"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="#F5F9FF">
+        <!-- Header với gradient -->
+        <Border Height="180" VerticalAlignment="Top">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0078D4" Offset="0"/>
+                    <GradientStop Color="#005BAC" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="CHÀO MỪNG BẠN ĐẾN VỚI THƯ VIỆN" 
+                           Foreground="White" 
+                           FontSize="28" 
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+                <TextBlock Text="Để bắt đầu sử dụng chương trình, vui lòng thực hiện các bước sau" 
+                           Foreground="#E6F7FF" 
+                           FontSize="18"
+                           TextAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Các bước thực hiện -->
+        <UniformGrid Columns="4" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                    Margin="40,220,40,60">
+            <!-- Khai báo loại sách -->
+            <Border Style="{StaticResource FeatureCard}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Viewbox Grid.Row="0" Width="80" Height="80" HorizontalAlignment="Center" Margin="0,10,0,20">
+                        <Image Source="/Images/Icons/category.png" Stretch="Uniform"/>
+                    </Viewbox>
+
+                    <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                        <TextBlock Text="KHAI BÁO LOẠI SÁCH" 
+                                   FontSize="18" 
+                                   FontWeight="Bold" 
+                                   Foreground="#005BAC" 
+                                   TextAlignment="Center" 
+                                   Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Phân loại sách theo nhóm và thể loại để dễ quản lý" 
+                                   FontSize="14" 
+                                   Foreground="#555555" 
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap" 
+                                   Margin="10,0,10,10"/>
+
+                        <StackPanel Margin="10,10,10,0">
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Khai báo nhóm thể loại sách" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Thêm các thể loại chi tiết" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Quản lý phân cấp thể loại" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Button Grid.Row="2" 
+                            Content="THỰC HIỆN" 
+                            Style="{StaticResource PrimaryButton}"
+                            Click="nhomLoaiSachbtn_Click"
+                            Margin="0,15,0,0"
+                            Height="20"/>
+                </Grid>
+            </Border>
+
+            <!-- Khai báo sách ban đầu -->
+            <Border Style="{StaticResource FeatureCard}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Viewbox Grid.Row="0" Width="80" Height="80" HorizontalAlignment="Center" Margin="0,10,0,20">
+                        <Image Source="/Images/Icons/firstBook.png" Stretch="Uniform"/>
+                    </Viewbox>
+
+                    <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                        <TextBlock Text="KHAI BÁO SÁCH BAN ĐẦU" 
+                                   FontSize="18" 
+                                   FontWeight="Bold" 
+                                   Foreground="#005BAC" 
+                                   TextAlignment="Center" 
+                                   Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Đưa toàn bộ sách hiện có vào hệ thống quản lý" 
+                                   FontSize="14" 
+                                   Foreground="#555555" 
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap" 
+                                   Margin="10,0,10,10"/>
+
+                        <StackPanel Margin="10,10,10,0">
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Nhập thông tin chi tiết sách" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Quản lý số lượng bản sao" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Theo dõi tình trạng sách" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Button Grid.Row="2" 
+                            Content="THỰC HIỆN" 
+                            Style="{StaticResource PrimaryButton}"
+                            Click="dauSachbtn_Click"
+                            Margin="0,15,0,0"
+                            Height="20"/>
+                </Grid>
+            </Border>
+
+            <!-- Khai báo độc giả -->
+            <Border Style="{StaticResource FeatureCard}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Viewbox Grid.Row="0" Width="80" Height="80" HorizontalAlignment="Center" Margin="0,10,0,20">
+                        <Image Source="/Images/Icons/reader.png" Stretch="Uniform"/>
+                    </Viewbox>
+
+                    <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                        <TextBlock Text="KHAI BÁO ĐỘC GIẢ" 
+                                   FontSize="18" 
+                                   FontWeight="Bold" 
+                                   Foreground="#005BAC" 
+                                   TextAlignment="Center" 
+                                   Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Quản lý thông tin độc giả sử dụng thư viện" 
+                                   FontSize="14" 
+                                   Foreground="#555555" 
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap" 
+                                   Margin="10,0,10,10"/>
+
+                        <StackPanel Margin="10,10,10,0">
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Thêm mới độc giả" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Cập nhật thông tin" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Theo dõi lịch sử mượn" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Button Grid.Row="2" 
+                            Content="THỰC HIỆN" 
+                            Style="{StaticResource PrimaryButton}"
+                            Click="docGiabtn_Click"
+                            Margin="0,15,0,0"
+                            Height="20"/>
+                </Grid>
+            </Border>
+
+            <!-- Đăng ký mượn sách -->
+            <Border Style="{StaticResource FeatureCard}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Viewbox Grid.Row="0" Width="80" Height="80" HorizontalAlignment="Center" Margin="0,10,0,20">
+                        <Image Source="/Images/Icons/borrowBook.png" Stretch="Uniform"/>
+                    </Viewbox>
+
+                    <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                        <TextBlock Text="ĐĂNG KÝ MƯỢN SÁCH" 
+                                   FontSize="18" 
+                                   FontWeight="Bold" 
+                                   Foreground="#005BAC" 
+                                   TextAlignment="Center" 
+                                   Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Hỗ trợ quy trình mượn và trả sách" 
+                                   FontSize="14" 
+                                   Foreground="#555555" 
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap" 
+                                   Margin="10,0,10,10"/>
+
+                        <StackPanel Margin="10,10,10,0">
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Tạo phiếu mượn sách" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="Theo dõi hạn trả" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <Path Data="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41-1.41z" 
+                                      Fill="#005BAC" 
+                                      Stretch="Uniform" 
+                                      Width="12" 
+                                      Height="12" 
+                                      Margin="0,0,5,0"/>
+                                <TextBlock Text="In phiếu mượn sách" 
+                                           FontSize="13" 
+                                           Foreground="#555555" 
+                                           TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Button Grid.Row="2" 
+                            Content="THỰC HIỆN" 
+                            Style="{StaticResource PrimaryButton}"
+                            Click="muonTrabtn_Click"
+                            Margin="0,15,0,0"
+                            Height="20"/>
+                </Grid>
+            </Border>
+        </UniformGrid>
+
+        <!-- Footer -->
+        <Border Background="#E6F7FF" Height="60" VerticalAlignment="Bottom">
+            <TextBlock Text="Hệ thống quản lý thư viện - Phiên bản 1.0" 
+                       Foreground="#005BAC"
+                       FontSize="14"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,109 @@
+﻿<Window x:Class="DoAnQLThuVien.Data.ThemDocGia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thêm Độc Giả"
+        Height="600" Width="1000"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen">
+    <Border Background="#E3F2FD" CornerRadius="12" BorderBrush="#2196F3" BorderThickness="1" Padding="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Ảnh độc giả -->
+            <StackPanel Grid.Column="0" Margin="10">
+                <Border Width="120" Height="160" CornerRadius="8" BorderBrush="#2196F3" BorderThickness="2" Background="White">
+                    <Image x:Name="anhDocGiaImage" Stretch="UniformToFill"/>
+                </Border>
+                <Button x:Name="Browerbtn" Content="Ảnh độc giả" Width="120" Height="30" 
+                        Margin="0,10,0,0" Background="#2196F3" Foreground="White"
+                        Click="Browerbtn_Click"/>
+            </StackPanel>
+
+            <!-- Form nhập liệu -->
+            <Grid Grid.Column="1" Margin="20,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Họ tên -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Ngày sinh -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- CCCD -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Loại độc giả -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- SĐT -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Địa chỉ -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Mã ĐG -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Ngày DK -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Buttons -->
+                </Grid.RowDefinitions>
+
+                <!-- Họ tên -->
+                <TextBlock Text="Họ tên độc giả" FontWeight="Bold"/>
+                <Border Grid.Row="0" Margin="0,25,0,10" Background="White" CornerRadius="6" BorderBrush="#2196F3" BorderThickness="1">
+                    <TextBox x:Name="tenDGtxt" Background="Transparent" BorderThickness="0" FontSize="14" Padding="6"/>
+                </Border>
+
+                <!-- Ngày sinh -->
+                <TextBlock Grid.Row="1" Text="Ngày sinh" FontWeight="Bold"/>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,25,0,10">
+                    <ComboBox x:Name="namcb" Width="80" Margin="0,0,10,0"/>
+                    <ComboBox x:Name="thangcb" Width="70" Margin="0,0,10,0"/>
+                    <ComboBox x:Name="ngaycb" Width="70"/>
+                </StackPanel>
+
+                <!-- CCCD -->
+                <TextBlock Grid.Row="2" Text="Số CCCD" FontWeight="Bold"/>
+                <Border Grid.Row="2" Margin="0,25,0,10" Background="White" CornerRadius="6" BorderBrush="#2196F3" BorderThickness="1">
+                    <TextBox x:Name="CCCDtxt" Background="Transparent" BorderThickness="0" FontSize="14" Padding="6"/>
+                </Border>
+
+                <!-- Loại độc giả -->
+                <TextBlock Grid.Row="3" Text="Loại độc giả" FontWeight="Bold"/>
+                <Border Grid.Row="3" Margin="0,25,0,10" Background="White" CornerRadius="6" BorderBrush="#2196F3" BorderThickness="1">
+                    <ComboBox x:Name="loaiDocGia" Background="Transparent" BorderThickness="0" FontSize="14" Padding="4"/>
+                </Border>
+
+                <!-- SĐT -->
+                <TextBlock Grid.Row="4" Text="Số điện thoại" FontWeight="Bold"/>
+                <Border Grid.Row="4" Margin="0,25,0,10" Background="White" CornerRadius="6" BorderBrush="#2196F3" BorderThickness="1">
+                    <TextBox x:Name="SDTtxt" Background="Transparent" BorderThickness="0" FontSize="14" Padding="6"/>
+                </Border>
+
+                <!-- Địa chỉ -->
+                <TextBlock Grid.Row="5" Text="Địa chỉ" FontWeight="Bold"/>
+                <Border Grid.Row="5" Margin="0,25,0,10" Background="White" CornerRadius="6" BorderBrush="#2196F3" BorderThickness="1">
+                    <TextBox x:Name="diaChitxt" Background="Transparent" BorderThickness="0" FontSize="14" Padding="6"/>
+                </Border>
+
+                <!-- Mã độc giả -->
+                <TextBlock Grid.Row="6" Text="Mã độc giả" FontWeight="Bold"/>
+                <Border Grid.Row="6" Margin="0,25,0,10" Background="White" CornerRadius="6" BorderBrush="#2196F3" BorderThickness="1">
+                    <TextBox x:Name="maDGtxt" Background="Transparent" BorderThickness="0" FontSize="14" Padding="6"/>
+                </Border>
+
+                <!-- Ngày đăng ký -->
+                <TextBlock Grid.Row="7" Text="Ngày đăng ký" FontWeight="Bold"/>
+                <DatePicker Grid.Row="7" x:Name="ngayDKdp" Margin="0,25,0,10" FontSize="14" BorderBrush="#2196F3"/>
+
+                <!-- Buttons -->
+                <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Button x:Name="dongbtn" Content="Đóng" Width="90" Height="30" FontSize="14"
+                            Background="#B0BEC5" Foreground="Black" Margin="0,0,10,0"
+                            Click="dongbtn_Click"/>
+                    <Button x:Name="dangkybtn" Content="Đăng ký &amp; In thẻ" Width="140" Height="30" FontSize="14"
+                            Background="#2196F3" Foreground="White" Click="dangkybtn_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

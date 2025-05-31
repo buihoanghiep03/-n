@@ -1,0 +1,175 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
+    <RootNamespace>DoAnQLThuVien</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <StartupObject>DoAnQLThuVien.App</StartupObject>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\account.png" />
+    <None Remove="Images\admin.png" />
+    <None Remove="Images\backsite.jpg" />
+    <None Remove="Images\book.png" />
+    <None Remove="Images\book_borrow.png" />
+    <None Remove="Images\borrow.png" />
+    <None Remove="Images\checkin.png" />
+    <None Remove="Images\checkout.png" />
+    <None Remove="Images\exit.png" />
+    <None Remove="Images\home.png" />
+    <None Remove="Images\Icons\account.png" />
+    <None Remove="Images\Icons\admin.jpg" />
+    <None Remove="Images\Icons\admin.png" />
+    <None Remove="Images\Icons\backsite.jpg" />
+    <None Remove="Images\Icons\book.png" />
+    <None Remove="Images\Icons\bookshelf.png" />
+    <None Remove="Images\Icons\book_borrow.png" />
+    <None Remove="Images\Icons\borrow.png" />
+    <None Remove="Images\Icons\borrowBook.png" />
+    <None Remove="Images\Icons\broken-book.png" />
+    <None Remove="Images\Icons\category.png" />
+    <None Remove="Images\Icons\check.png" />
+    <None Remove="Images\Icons\checkBook.png" />
+    <None Remove="Images\Icons\checkin.png" />
+    <None Remove="Images\Icons\checkout.png" />
+    <None Remove="Images\Icons\close.png" />
+    <None Remove="Images\Icons\copy.png" />
+    <None Remove="Images\Icons\damage book.png" />
+    <None Remove="Images\Icons\data.png" />
+    <None Remove="Images\Icons\deadline.png" />
+    <None Remove="Images\Icons\deleted.png" />
+    <None Remove="Images\Icons\edit.png" />
+    <None Remove="Images\Icons\employees.png" />
+    <None Remove="Images\Icons\exit.png" />
+    <None Remove="Images\Icons\firstBook.png" />
+    <None Remove="Images\Icons\firstBooks.png" />
+    <None Remove="Images\Icons\home.png" />
+    <None Remove="Images\Icons\icon-admin.png" />
+    <None Remove="Images\Icons\icon-user.png" />
+    <None Remove="Images\Icons\librarian.png" />
+    <None Remove="Images\Icons\LibraryLogo.jpg" />
+    <None Remove="Images\Icons\lock.png" />
+    <None Remove="Images\Icons\logo.jpg" />
+    <None Remove="Images\Icons\logout.png" />
+    <None Remove="Images\Icons\lost.png" />
+    <None Remove="Images\Icons\man.png" />
+    <None Remove="Images\Icons\manager.png" />
+    <None Remove="Images\Icons\member.png" />
+    <None Remove="Images\Icons\minimize.png" />
+    <None Remove="Images\Icons\missing.png" />
+    <None Remove="Images\Icons\new.png" />
+    <None Remove="Images\Icons\normalbook.png" />
+    <None Remove="Images\Icons\numberbook.png" />
+    <None Remove="Images\Icons\oldbook.png" />
+    <None Remove="Images\Icons\outdate.png" />
+    <None Remove="Images\Icons\people.png" />
+    <None Remove="Images\Icons\print.png" />
+    <None Remove="Images\Icons\reader.png" />
+    <None Remove="Images\Icons\resize.png" />
+    <None Remove="Images\Icons\return.png" />
+    <None Remove="Images\Icons\room.png" />
+    <None Remove="Images\Icons\staff.png" />
+    <None Remove="Images\Icons\statistics.png" />
+    <None Remove="Images\Icons\system.png" />
+    <None Remove="Images\Icons\user.png" />
+    <None Remove="Images\Icons\worker.png" />
+    <None Remove="Images\librarian.png" />
+    <None Remove="Images\logout.png" />
+    <None Remove="Images\man.png" />
+    <None Remove="Images\member.png" />
+    <None Remove="Images\minimize.png" />
+    <None Remove="Images\reader.png" />
+    <None Remove="Images\resize.png" />
+    <None Remove="Images\return.png" />
+    <None Remove="Images\room.png" />
+    <None Remove="Images\staff.png" />
+    <None Remove="Images\statistics.png" />
+    <None Remove="Images\system.png" />
+    <None Remove="logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NPOI" Version="2.7.2" />
+    <PackageReference Include="PDFsharp-MigraDoc-WPF" Version="6.1.1" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icons\account.png" />
+    <Resource Include="Images\Icons\admin.jpg" />
+    <Resource Include="Images\Icons\admin.png" />
+    <Resource Include="Images\Icons\backsite.jpg" />
+    <Resource Include="Images\Icons\book.png" />
+    <Resource Include="Images\Icons\bookshelf.png" />
+    <Resource Include="Images\Icons\book_borrow.png" />
+    <Resource Include="Images\Icons\borrow.png" />
+    <Resource Include="Images\Icons\borrowBook.png" />
+    <Resource Include="Images\Icons\broken-book.png" />
+    <Resource Include="Images\Icons\category.png" />
+    <Resource Include="Images\Icons\check.png" />
+    <Resource Include="Images\Icons\checkBook.png" />
+    <Resource Include="Images\Icons\checkin.png" />
+    <Resource Include="Images\Icons\checkout.png" />
+    <Resource Include="Images\Icons\close.png" />
+    <Resource Include="Images\Icons\copy.png" />
+    <Resource Include="Images\Icons\damage book.png" />
+    <Resource Include="Images\Icons\data.png" />
+    <Resource Include="Images\Icons\deadline.png" />
+    <Resource Include="Images\Icons\deleted.png" />
+    <Resource Include="Images\Icons\edit.png" />
+    <Resource Include="Images\Icons\employees.png" />
+    <Resource Include="Images\Icons\firstBook.png" />
+    <Resource Include="Images\Icons\home.png" />
+    <Resource Include="Images\Icons\icon-admin.png" />
+    <Resource Include="Images\Icons\icon-user.png" />
+    <Resource Include="Images\Icons\librarian.png" />
+    <Resource Include="Images\Icons\lock.png" />
+    <Resource Include="Images\Icons\logo.jpg" />
+    <Resource Include="Images\Icons\logout.png" />
+    <Resource Include="Images\Icons\lost.png" />
+    <Resource Include="Images\Icons\man.png" />
+    <Resource Include="Images\Icons\manager.png" />
+    <Resource Include="Images\Icons\member.png" />
+    <Resource Include="Images\Icons\minimize.png" />
+    <Resource Include="Images\Icons\missing.png" />
+    <Resource Include="Images\Icons\new.png" />
+    <Resource Include="Images\Icons\normalbook.png" />
+    <Resource Include="Images\Icons\numberbook.png" />
+    <Resource Include="Images\Icons\oldbook.png" />
+    <Resource Include="Images\Icons\outdate.png" />
+    <Resource Include="Images\Icons\people.png" />
+    <Resource Include="Images\Icons\print.png" />
+    <Resource Include="Images\Icons\reader.png" />
+    <Resource Include="Images\Icons\resize.png" />
+    <Resource Include="Images\Icons\return.png" />
+    <Resource Include="Images\Icons\room.png" />
+    <Resource Include="Images\Icons\staff.png" />
+    <Resource Include="Images\Icons\statistics.png" />
+    <Resource Include="Images\Icons\system.png" />
+    <Resource Include="Images\Icons\user.png" />
+    <Resource Include="Images\Icons\worker.png" />
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+
+</Project>

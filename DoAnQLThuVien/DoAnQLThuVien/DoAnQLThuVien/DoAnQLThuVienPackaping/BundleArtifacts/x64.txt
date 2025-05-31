@@ -1,0 +1,6 @@
+MainPackage=F:\Đồ Án Tốt Nghiệp\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVienPackaping\bin\x64\Release\DoAnQLThuVienPackaping_1.0.5.0_x64.msix
+SymbolPackage=F:\Đồ Án Tốt Nghiệp\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVienPackaping\obj\x64\Release\Symbols\DoAnQLThuVienPackaping_1.0.5.0_x64.appxsym
+ResourcePack=F:\Đồ Án Tốt Nghiệp\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVienPackaping\bin\x64\Release\DoAnQLThuVienPackaping_1.0.5.0_scale-100.msix
+ResourcePack=F:\Đồ Án Tốt Nghiệp\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVienPackaping\bin\x64\Release\DoAnQLThuVienPackaping_1.0.5.0_scale-125.msix
+ResourcePack=F:\Đồ Án Tốt Nghiệp\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVienPackaping\bin\x64\Release\DoAnQLThuVienPackaping_1.0.5.0_scale-150.msix
+ResourcePack=F:\Đồ Án Tốt Nghiệp\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVienPackaping\bin\x64\Release\DoAnQLThuVienPackaping_1.0.5.0_scale-400.msix

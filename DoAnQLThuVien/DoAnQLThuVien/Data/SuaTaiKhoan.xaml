@@ -1,0 +1,69 @@
+﻿<Window x:Class="DoAnQLThuVien.Data.SuaTaiKhoan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sửa Tài Khoản"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Height="600" Width="800">
+
+    <Border Background="White" BorderBrush="#2196F3" BorderThickness="2" CornerRadius="20" Padding="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Tiêu đề -->
+            <TextBlock Text="SỬA TÀI KHOẢN" 
+                       FontSize="26" FontWeight="Bold" 
+                       Foreground="#2196F3" 
+                       HorizontalAlignment="Center" Margin="0,10"/>
+
+            <!-- Nội dung -->
+            <StackPanel Grid.Row="1" Margin="100,30,100,0">
+                <!-- Tài khoản -->
+                <TextBlock Text="Tài khoản" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <TextBox x:Name="taiKhoantxt" Height="40" FontSize="14" Padding="10"/>
+
+                <!-- Mật khẩu -->
+                <TextBlock Text="Mật khẩu" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <PasswordBox x:Name="matKhautxt" Height="40" FontSize="14" Padding="10"/>
+                <TextBox x:Name="matKhauTextBox" Height="40" FontSize="14" Padding="10" Visibility="Hidden"/>
+
+                <!-- Xác nhận mật khẩu -->
+                <TextBlock Text="Xác nhận mật khẩu" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <PasswordBox x:Name="xacNhanMatKhautxt" Height="40" FontSize="14" Padding="10"/>
+
+                <!-- Loại tài khoản -->
+                <TextBlock Text="Loại tài khoản" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <TextBox x:Name="loaiTaiKhoantxt" IsReadOnly="True" Height="40" FontSize="14" Padding="10"/>
+
+                <!-- Người dùng ID -->
+                <TextBlock Text="Người dùng ID" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <TextBox x:Name="nguoiDungIdtxt" IsReadOnly="True" Height="40" FontSize="14" Padding="10"/>
+            </StackPanel>
+
+            <!-- CheckBox hiện mật khẩu ngoài cùng -->
+            <CheckBox Content="Hiện mật khẩu" Grid.Row="1"
+                      HorizontalAlignment="Left" Margin="554,168,0,0"
+                      VerticalAlignment="Top"
+                      Checked="HienMatKhau_Checked" 
+                      Unchecked="HienMatKhau_Unchecked"/>
+
+            <!-- Nút -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,10">
+                <Button x:Name="dongbtn" Content="Đóng" Width="90" Height="35" Margin="0,0,10,0"
+                        Click="dongbtn_Click" 
+                        Background="White" BorderBrush="#2196F3" BorderThickness="2" 
+                        Foreground="#2196F3" FontWeight="Bold"/>
+                <Button x:Name="suabtn" Content="Sửa" Width="90" Height="35"
+                        Click="suabtn_Click" 
+                        Background="#2196F3" BorderBrush="#2196F3" BorderThickness="2" 
+                        Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

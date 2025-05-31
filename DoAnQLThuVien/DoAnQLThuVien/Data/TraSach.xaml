@@ -1,0 +1,355 @@
+﻿<Window x:Class="DoAnQLThuVien.Data.TraSach"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Trả Sách"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Width="1000" Height="800"
+        ResizeMode="CanResize">
+
+    <Window.Resources>
+        <!-- Modern Drop Shadow Effect -->
+        <DropShadowEffect x:Key="ShadowEffect" BlurRadius="20" ShadowDepth="5" Opacity="0.2" Color="#FF2196F3"/>
+
+        <!-- Button Styles -->
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1976D2"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#0D47A1"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SecondaryButton" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#2196F3"/>
+            <Setter Property="BorderBrush" Value="#2196F3"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#E3F2FD"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#BBDEFB"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- TextBox Style -->
+        <Style x:Key="FormTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#B0BEC5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#263238"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#2196F3"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- ComboBox Style -->
+        <Style x:Key="FormComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#B0BEC5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#263238"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <!-- Label Style -->
+        <Style x:Key="FormLabel" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#2196F3"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <!-- DataGrid Style -->
+        <Style x:Key="ModernDataGrid" TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#263238"/>
+            <Setter Property="BorderBrush" Value="#B0BEC5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowBackground" Value="White"/>
+            <Setter Property="AlternatingRowBackground" Value="#F5F5F5"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="True"/>
+            <Setter Property="CanUserSortColumns" Value="True"/>
+            <Setter Property="ColumnHeaderHeight" Value="35"/>
+            <Setter Property="RowHeight" Value="30"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="ColumnHeaderStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#2196F3"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="10,0"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CellStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Foreground" Value="#263238"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="DataGridCell">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#E3F2FD"/>
+                                <Setter Property="Foreground" Value="#263238"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <!-- Main Window Content -->
+    <Border BorderBrush="#2196F3" 
+            BorderThickness="1" 
+            CornerRadius="10" 
+            Background="White" 
+            Padding="15"
+            Effect="{StaticResource ShadowEffect}">
+
+        <Grid>
+            <!-- Title Bar -->
+            <Grid Height="40" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="TRẢ SÁCH" 
+                           FontSize="18" 
+                           FontWeight="Bold" 
+                           Foreground="#2196F3"
+                           VerticalAlignment="Center"
+                           Margin="10,0"/>
+
+                <Button x:Name="CloseButton" 
+                        Grid.Column="1"
+                        Content="✕" 
+                        Width="30" 
+                        Height="30"
+                        Foreground="#2196F3"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Click="dongbtn_Click"/>
+            </Grid>
+
+            <!-- Main Content -->
+            <Grid Margin="0,40,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Left Panel - Borrower Info -->
+                <Border Grid.Column="0" 
+                        Margin="10" 
+                        Padding="15" 
+                        Background="#F5F9FF" 
+                        CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock Text="THÔNG TIN MƯỢN" 
+                                   FontWeight="Bold" 
+                                   FontSize="16"
+                                   Foreground="#2196F3"
+                                   Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Mã phiếu mượn" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="maPhieuMuontxt" Style="{StaticResource FormTextBox}"/>
+
+                        <TextBlock Text="Mã độc giả" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="maDocGiatcb" Style="{StaticResource FormTextBox}"/>
+
+                        <TextBlock Text="Tên người mượn" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="TenNguoiMuontxt" Style="{StaticResource FormTextBox}" IsReadOnly="True"/>
+
+                        <TextBlock Text="Ngày mượn" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="ngayMuonhdp" Style="{StaticResource FormTextBox}"/>
+
+                        <TextBlock Text="Ngày hẹn trả" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="ngayHenTradp" Style="{StaticResource FormTextBox}"/>
+
+                        <TextBlock Text="Ghi chú" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="ghiChutxt" 
+                                 Height="80" 
+                                 TextWrapping="Wrap" 
+                                 VerticalScrollBarVisibility="Auto"
+                                 Style="{StaticResource FormTextBox}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Right Panel - Book Info and Actions -->
+                <Border Grid.Column="1" 
+                        Margin="10" 
+                        Padding="15" 
+                        Background="#F5F9FF" 
+                        CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock Text="THÔNG TIN SÁCH" 
+                                   FontWeight="Bold" 
+                                   FontSize="16"
+                                   Foreground="#2196F3"
+                                   Margin="0,0,0,15"/>
+
+                        <DataGrid x:Name="datagrid" 
+                                  Style="{StaticResource ModernDataGrid}"
+                                  Height="200">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Mã sách" Binding="{Binding IdSach}" Width="150"/>
+                                <DataGridTextColumn Header="Tên sách" Binding="{Binding TenSach}" Width="*"/>
+                                <DataGridTextColumn Header="Tình trạng sách" Binding="{Binding TinhTrangSach}" Width="150"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <!-- Return Date and Compensation -->
+                        <WrapPanel Margin="0,15,0,15">
+                            <StackPanel Width="220" Margin="0,0,15,0">
+                                <TextBlock Text="Ngày trả sách" Style="{StaticResource FormLabel}"/>
+                                <TextBox x:Name="ngayTraThucThetxt" Style="{StaticResource FormTextBox}"/>
+                            </StackPanel>
+
+                            <StackPanel Width="220" Margin="0,0,15,0">
+                                <TextBlock Text="Tình trạng bồi thường" Style="{StaticResource FormLabel}"/>
+                                <ComboBox x:Name="tinhTrangBoiThuongtxt" Style="{StaticResource FormComboBox}"/>
+                            </StackPanel>
+
+                            <StackPanel Width="220">
+                                <TextBlock Text="Tiền bồi thường" Style="{StaticResource FormLabel}"/>
+                                <TextBox x:Name="tienBoiThuongtxt" Style="{StaticResource FormTextBox}"/>
+                            </StackPanel>
+                        </WrapPanel>
+
+                        <!-- Book Condition -->
+                        <TextBlock Text="TÌNH TRẠNG SÁCH KHI TRẢ" 
+                                   FontWeight="Bold" 
+                                   Foreground="#2196F3"
+                                   Margin="0,0,0,10"/>
+
+                        <WrapPanel Margin="0,0,0,15">
+                            <StackPanel Width="220" Margin="0,0,15,0">
+                                <TextBlock Text="Tình trạng sách 1" Style="{StaticResource FormLabel}"/>
+                                <ComboBox x:Name="tinhTrangSach1cb" Style="{StaticResource FormComboBox}"/>
+                            </StackPanel>
+                            <StackPanel Width="220" Margin="0,0,15,0">
+                                <TextBlock Text="Tình trạng sách 2" Style="{StaticResource FormLabel}"/>
+                                <ComboBox x:Name="tinhTrangSach2cb" Style="{StaticResource FormComboBox}"/>
+                            </StackPanel>
+                            <StackPanel Width="220">
+                                <TextBlock Text="Tình trạng sách 3" Style="{StaticResource FormLabel}"/>
+                                <ComboBox x:Name="tinhTrangSach3cb" Style="{StaticResource FormComboBox}"/>
+                            </StackPanel>
+                        </WrapPanel>
+
+                        <!-- Buttons and Notification -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                            <Label x:Name="thongBaolb" 
+                                   FontSize="14" 
+                                   FontWeight="Bold" 
+                                   Foreground="Red" 
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,20,0"/>
+
+                            <Button x:Name="dongbtn" 
+                                    Content="Đóng" 
+                                    Style="{StaticResource SecondaryButton}" Click="dongbtn_Click"
+                                    Margin="0,0,10,0"/>
+
+                            <Button x:Name="traSachbtn" 
+                                    Content="Trả sách" 
+                                    Style="{StaticResource PrimaryButton}"
+                                    Click="traSachbtn_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

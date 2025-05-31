@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Data\ChiTietMuon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\GiaHanMuon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\QLCongViec.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\DanhSachDauSach.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\DuLieuSach.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\QLPhongDoc.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\SachTrenKe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\SuaDauSach.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\SuaDocGia.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\SuaDuLieuSach.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\SuaKeSach.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\SuaNhanSu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\SuaTaiKhoan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\ThemKeSach.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\ThemSach.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\ThemSachTrenKe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\TheoDoiTKDangNhap.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TimKiemChiTietSach.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Data\TraSach.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DoiMatKhau.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TimKiemWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Data\QLCongViec.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\DanhSachDauSach.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\DuLieuSach.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\SuaDauSach.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\SuaDuLieuSach.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\SuaNhanSu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\SuaTaiKhoan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\ThemKeSach.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\ThemSach.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TimKiemChiTietSach.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TimKiemWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

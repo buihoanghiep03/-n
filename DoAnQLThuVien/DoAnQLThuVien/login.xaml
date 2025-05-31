@@ -1,0 +1,188 @@
+﻿<Window x:Class="DoAnQLThuVien.login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoAnQLThuVien"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="Đăng nhập hệ thống" Height="600" Width="1024"
+        Icon="pack://application:,,,/logo.ico">
+
+    <!-- Border chính với CornerRadius -->
+    <Border Background="#FF215A9A" CornerRadius="30">
+        <Grid>
+            <!-- Phần hình ảnh bên trái -->
+            <Border Width="512" Background="#FF1A4B8C" CornerRadius="30,0,0,30">
+                <Image Source="/Images/Icons/backsite.jpg" Stretch="UniformToFill" Opacity="0.8" Margin="-254,0,254,0"/>
+            </Border>
+
+            <!-- Phần đăng nhập bên phải -->
+            <Border Width="512" Background="White" CornerRadius="0,30,30,0" Margin="512,0,0,0">
+                <Grid>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
+                        <!-- Tiêu đề -->
+                        <TextBlock Text="ĐĂNG NHẬP" 
+                                   FontSize="28" 
+                                   FontWeight="Bold" 
+                                   Foreground="#FF215A9A"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,0,0,40"/>
+
+                        <!-- Tài khoản -->
+                        <TextBlock Text="Tài khoản" 
+                                   FontSize="14" 
+                                   Foreground="#555555"
+                                   Margin="5,0,0,5"/>
+
+                        <Border CornerRadius="5" Background="#F5F5F5" BorderBrush="#DDDDDD" BorderThickness="1">
+                            <TextBox x:Name="usernametxt"
+                                     FontSize="14"
+                                     Height="40"
+                                     Padding="10"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Foreground="#333333"
+                                     CaretBrush="#FF215A9A"/>
+                        </Border>
+
+                        <!-- Mật khẩu -->
+                        <TextBlock Text="Mật khẩu" 
+                                   FontSize="14" 
+                                   Foreground="#555555"
+                                   Margin="5,15,0,5"/>
+
+                        <Border CornerRadius="5" Background="#F5F5F5" BorderBrush="#DDDDDD" BorderThickness="1">
+                            <PasswordBox x:Name="passwordbox"
+                                        FontSize="14"
+                                        Height="40"
+                                        Padding="10"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        Foreground="#333333"
+                                        CaretBrush="#FF215A9A"/>
+                        </Border>
+
+                        <!-- Quên mật khẩu -->
+                        <Button x:Name="quenMKbtn" 
+                                Content="Quên mật khẩu?" 
+                                HorizontalAlignment="Right"
+                                Margin="0,5,0,20"
+                                Foreground="#FF215A9A"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                Click="quenMKbtn_Click"
+                                FontSize="12"/>
+
+                        <!-- Nút đăng nhập -->
+                        <Button x:Name="loginbtn"
+                               Content="ĐĂNG NHẬP" 
+                               Height="45"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               Background="#FF215A9A"
+                               BorderThickness="0"
+                               Cursor="Hand"
+                               Click="loginbtn_Click"
+                               Margin="0,0,0,15">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            CornerRadius="5">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#FF215A9A"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#1A4B8C"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                        <!-- Các nút chức năng khác -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button x:Name="timeKiembtn"
+                                    Content="Tìm sách" 
+                                    Width="120"
+                                    Height="35"
+                                    FontSize="13"
+                                    Foreground="White"
+                                    Background="#4CAF50"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    Click="timeKiembtn_Click"
+                                    Margin="0,0,10,0">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#4CAF50"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#3E8E41"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+
+                            <Button x:Name="closebtn"
+                                    Content="ĐÓNG" 
+                                    Width="120"
+                                    Height="35"
+                                    FontSize="13"
+                                    Foreground="White"
+                                    Background="#F44336"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    Click="closebtn_Click">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#F44336"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#D32F2F"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Logo hoặc thông tin thêm -->
+                    <Image Source="/Images/Icons/logo.jpg"
+                           Width="80" Height="89" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top"
+                           Margin="0,25,0,0"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

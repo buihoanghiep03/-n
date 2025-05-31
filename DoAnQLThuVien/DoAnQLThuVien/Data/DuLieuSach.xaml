@@ -1,0 +1,336 @@
+﻿<UserControl x:Class="DoAnQLThuVien.Data.DuLieuSach"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoAnQLThuVien.Data"
+             mc:Ignorable="d" 
+             d:DesignHeight="780" d:DesignWidth="1300">
+
+    <UserControl.Resources>
+        <Style x:Key="StatCardStyle" TargetType="Border">
+            <Setter Property="Background" Value="#FF2196F3"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Width" Value="180"/>
+        </Style>
+
+        <Style x:Key="StatIconStyle" TargetType="Image">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <Style x:Key="StatTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5,0,0,0"/>
+        </Style>
+
+        <Style x:Key="StatTitleStyle" BasedOn="{StaticResource StatTextStyle}" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+
+        <Style x:Key="SearchButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="5,0,5,0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="#FFF5F9FF">
+        <!-- Header section -->
+        <Border Background="#FF2196F3" Height="60" CornerRadius="5" Margin="20,20,20,0">
+            <TextBlock Text="QUẢN LÝ DỮ LIỆU SÁCH" 
+                       Foreground="White" 
+                       FontSize="25" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+        </Border>
+
+        <!-- Header section for "QUẢN LÝ BẢN IN" -->
+        <Border Background="#FF42A5F5" Height="40" VerticalAlignment="Top">
+            <TextBlock Text="QUẢN LÝ BẢN IN" 
+                       Foreground="White" 
+                       FontSize="16" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+        </Border>
+
+        <!-- Stats cards - all in one row -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,60,20,0">
+            <!-- Sách mới -->
+            <Border Style="{StaticResource StatCardStyle}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="/Images/Icons/new.png" Style="{StaticResource StatIconStyle}"/>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock Text="Sách mới" Style="{StaticResource StatTitleStyle}"/>
+                        <TextBlock x:Name="tongSachMoi" Style="{StaticResource StatTextStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Sách bình thường -->
+            <Border Style="{StaticResource StatCardStyle}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="/Images/Icons/normalbook.png" Style="{StaticResource StatIconStyle}"/>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock Text="Sách bình thường" Style="{StaticResource StatTitleStyle}"/>
+                        <TextBlock x:Name="tongSachbth" Style="{StaticResource StatTextStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Sách cũ -->
+            <Border Style="{StaticResource StatCardStyle}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="/Images/Icons/oldbook.png" Style="{StaticResource StatIconStyle}"/>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock Text="Sách cũ" Style="{StaticResource StatTitleStyle}"/>
+                        <TextBlock x:Name="tongSachCu" Style="{StaticResource StatTextStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Sách hỏng nhẹ -->
+            <Border Style="{StaticResource StatCardStyle}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="/Images/Icons/damage book.png" Style="{StaticResource StatIconStyle}"/>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock Text="Sách hỏng nhẹ" Style="{StaticResource StatTitleStyle}"/>
+                        <TextBlock x:Name="tongSachHongNhe" Style="{StaticResource StatTextStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Sách hỏng nặng -->
+            <Border Style="{StaticResource StatCardStyle}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="/Images/Icons/broken-book.png" Style="{StaticResource StatIconStyle}"/>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock Text="Sách hỏng nặng" Style="{StaticResource StatTitleStyle}"/>
+                        <TextBlock x:Name="sachHongNangtxt" Style="{StaticResource StatTextStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Sách mất -->
+            <Border Style="{StaticResource StatCardStyle}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="/Images/Icons/lost.png" Style="{StaticResource StatIconStyle}"/>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock Text="Sách mất" Style="{StaticResource StatTitleStyle}"/>
+                        <TextBlock x:Name="sachMattxt" Style="{StaticResource StatTextStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <!-- Search and action buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,160,0,0">
+            <TextBox x:Name="timKiemTextBox" 
+                     Width="400" 
+                     Height="35" 
+                     Margin="20,0,10,0"
+                     FontSize="14" 
+                     Padding="10"
+                     VerticalContentAlignment="Center"
+                     BorderBrush="#FFBBDEFB"
+                     BorderThickness="1"
+                     Background="White"/>
+
+            <Button x:Name="timKiembtn" 
+                    Content="TÌM KIẾM" 
+                    Style="{StaticResource SearchButtonStyle}"
+                    Background="#FF2196F3"
+                    Click="timKiembtn_Click"/>
+
+            <Button x:Name="resetbtn" 
+                    Content="RESET" 
+                    Style="{StaticResource SearchButtonStyle}"
+                    Background="#FF607D8B"
+                    Click="resetbtn_Click"/>
+
+            <Button x:Name="inTembtn" 
+                    Content="IN TEM SÁCH" 
+                    Width="120"
+                    Style="{StaticResource SearchButtonStyle}"
+                    Background="#FF4CAF50"
+                    Click="inTembtn_Click"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <Border BorderBrush="#FFE0E0E0" BorderThickness="1" CornerRadius="5" Margin="20,210,20,60" Background="White">
+            <DataGrid x:Name="datagrid" 
+                      d:ItemsSource="{d:SampleData ItemCount=5}" 
+                      SelectionChanged="datagrid_SelectionChanged" 
+                      AutoGenerateColumns="False"
+                      Background="White" 
+                      RowHeight="120"
+                ColumnHeaderHeight="40"
+                      AlternationCount="2"
+                      AlternatingRowBackground="#FFF5F9FF"
+                      GridLinesVisibility="None"
+                      HeadersVisibility="Column"
+                      CanUserResizeRows="False">
+
+                <DataGrid.Resources>
+                    <!-- Column header style -->
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#FF2196F3"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="Padding" Value="10,5"/>
+                    </Style>
+
+                    <!-- Cell style -->
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="Foreground" Value="#FF333333"/>
+                        <Setter Property="FontSize" Value="13"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                        <Setter Property="BorderBrush" Value="#FFE0E0E0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FFE3F2FD"/>
+                                <Setter Property="Foreground" Value="#FF000000"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                    <!-- Style căn giữa nội dung trong TextColumn -->
+                    <Style x:Key="CenteredTextStyle" TargetType="TextBlock">
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <!-- Cột CheckBox -->
+                    <DataGridTemplateColumn Header="Chọn" Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Tag="{Binding Id}" 
+                                          Checked="CheckBox_Checked"
+                                          Unchecked="CheckBox_Unchecked"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Cột Ảnh bìa với tỷ lệ 4x6 -->
+                    <DataGridTemplateColumn Header="ẢNH BÌA" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Width="90" Height="135" Background="#FFF5F5F5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Source="{Binding AnhBia}" 
+                                           Stretch="Uniform" 
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center"
+                                           MaxWidth="90"
+                                           MaxHeight="135"/>
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="TÊN SÁCH" Binding="{Binding TenSach}" Width="*"
+                                ElementStyle="{StaticResource CenteredTextStyle}"/>
+                    <DataGridTextColumn Header="TÁC GIẢ" Binding="{Binding TacGia}" Width="200"
+                                ElementStyle="{StaticResource CenteredTextStyle}"/>
+                    <DataGridTextColumn Header="NĂM XB" Binding="{Binding NamXuatBan}" Width="100"
+                                ElementStyle="{StaticResource CenteredTextStyle}"/>
+                    <DataGridTextColumn Header="GIỚI HẠN" Binding="{Binding GioiHanDocGia}" Width="100"
+                                ElementStyle="{StaticResource CenteredTextStyle}"/>
+                    <DataGridTextColumn Header="TÌNH TRẠNG" Binding="{Binding TinhTrangSach}" Width="120"
+                                ElementStyle="{StaticResource CenteredTextStyle}"/>
+                    <DataGridTextColumn Header="VỊ TRÍ" Binding="{Binding KeSach}" Width="100"
+                                ElementStyle="{StaticResource CenteredTextStyle}"/>
+
+                    <!-- Cột Chi tiết -->
+                    <DataGridTemplateColumn Header="CHI TIẾT" Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Chi tiết" 
+                                        Tag="{Binding Id}"
+                                        Click="chiTietbtn_Click" 
+                                        Height="30" 
+                                        Width="80" 
+                                        Background="#FF2196F3" 
+                                        Foreground="White"
+                                        FontSize="12"
+                                        FontWeight="SemiBold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Cột Chỉnh sửa -->
+                    <DataGridTemplateColumn Header="SỬA" Width="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Sửa" 
+                                        Tag="{Binding Id}"
+                                        Click="EditImage_Click" 
+                                        Height="30" 
+                                        Width="60" 
+                                        Background="#FF00BCD4" 
+                                        Foreground="White"
+                                        FontSize="12"
+                                        FontWeight="SemiBold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Cột Xóa -->
+                    <DataGridTemplateColumn Header="XÓA" Width="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Xóa" 
+                                        Tag="{Binding Id}"
+                                        Click="DeleteButton_Click" 
+                                        Height="30" 
+                                        Width="60" 
+                                        Background="#FFF44336" 
+                                        Foreground="White"
+                                        FontSize="12"
+                                        FontWeight="SemiBold"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- Bottom controls -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20">
+            <Label x:Name="tongSoSachlb" Content="Tổng số ... bản in" FontSize="14" Foreground="#FF333333"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20">
+            <Label x:Name="tranglb" Content="Trang" FontSize="14" Foreground="#FF333333" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="trangcb" Width="80" SelectionChanged="trangcb_SelectionChanged" FontSize="14"/>
+            <Label x:Name="tongTranglb" Content="trên tổng số ... trang" FontSize="14" Foreground="#FF333333" VerticalAlignment="Center" Margin="5,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

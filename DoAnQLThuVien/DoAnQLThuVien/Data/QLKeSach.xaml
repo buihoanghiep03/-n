@@ -1,0 +1,351 @@
+﻿<UserControl x:Class="DoAnQLThuVien.Data.QLKeSach"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoAnQLThuVien.Data"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" d:DesignWidth="1320">
+    <UserControl.Resources>
+        <!-- Button Styles -->
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF2754AD"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF1E429F"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FF16317A"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF2754AD"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#FF2754AD"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFE6F0FF"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FFC4D8FF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="GridActionButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF2754AD"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF1E429F"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="GridIconButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF2754AD"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF1E429F"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- TextBlock Center Alignment Style -->
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="#FFF5F9FF">
+        <!-- Header Section -->
+        <Border Background="#FF2754AD" Height="60" VerticalAlignment="Top">
+            <Label Content="QUẢN LÝ KỆ SÁCH" 
+                   Foreground="White" 
+                   FontSize="24" 
+                   FontWeight="Bold"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"
+                   FontFamily="Tahoma"/>
+        </Border>
+
+        <!-- Progress Bar Section -->
+        <StackPanel Orientation="Horizontal" Margin="20,80,20,0" VerticalAlignment="Top" Height="40">
+            <Label Content="Tiến độ: " VerticalAlignment="Center" Margin="0,0,10,0" FontSize="16"/>
+
+            <Grid Width="500" VerticalAlignment="Center">
+                <Border x:Name="thanhTienDoRed" CornerRadius="5" BorderThickness="1" BorderBrush="Black" 
+                        Background="#FFED0000" Height="30" VerticalAlignment="Center"/>
+                <Border x:Name="thanhTienDoGreen" CornerRadius="5" BorderThickness="1" BorderBrush="Black" 
+                        Background="#FF00ED50" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Width="0"/>
+                <Label x:Name="tienDolb" Content="0 / 100" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="14" FontWeight="Bold" Foreground="White"/>
+            </Grid>
+        </StackPanel>
+
+        <!-- Action Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,80,20,0">
+            <TextBox x:Name="timKiemTextBox" Width="300" Height="35" Margin="0,0,10,0"
+                     VerticalContentAlignment="Center" FontSize="14" FontFamily="Tahoma"
+                     BorderThickness="1" BorderBrush="#FFD3D3D3" Padding="5"/>
+
+            <Button x:Name="timKiembtn" Content="Tìm kiếm" 
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="100" Height="35" Margin="0,0,10,0" Click="timKiembtn_Click"/>
+
+            <Button x:Name="resetbtn" Content="Reset" 
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="100" Height="35" Margin="0,0,10,0" Click="resetbtn_Click"/>
+
+            <Button x:Name="ThemKeSachbtn" Content="Thêm kệ sách" 
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Width="150" Height="40" Click="ThemKeSachbtn_Click"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <Border Background="White" CornerRadius="5" BorderThickness="1" BorderBrush="#FFD3D3D3" 
+                Margin="20,140,20,60">
+            <DataGrid x:Name="datagrid" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                      SelectionChanged="datagrid_SelectionChanged"
+                      AutoGenerateColumns="False" Background="White" 
+                      BorderThickness="0" RowHeight="40" 
+                      ColumnHeaderHeight="40" AlternationCount="2"
+                      AlternatingRowBackground="#FFF5F9FF"
+                      GridLinesVisibility="None"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto">
+
+                <DataGrid.Resources>
+                    <!-- Style cho Header -->
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#FF2754AD"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Padding" Value="10,5"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                        <Setter Property="BorderBrush" Value="#FFD3D3D3"/>
+                    </Style>
+
+                    <!-- Style cho Cell -->
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="Foreground" Value="#FF333333"/>
+                        <Setter Property="FontSize" Value="13"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                        <Setter Property="BorderBrush" Value="#FFD3D3D3"/>
+                    </Style>
+
+                    <!-- Hover effect for rows -->
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFE6F0FF"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FFC4D8FF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã sách" Binding="{Binding Id}" Width="120">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Foreground" Value="#FF2754AD"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Tên kệ sách" Binding="{Binding TenKeSach}" Width="*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Nhóm thể loại" Binding="{Binding NhomTheLoaiKe}" Width="*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Vị trí kệ" Binding="{Binding ViTriKe}" Width="200">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Số sách tối đa" Binding="{Binding SoLuongSachToiDa}" Width="120">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Tổng hiện tại" Binding="{Binding SoLuongSachHienTai}" Width="120">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTemplateColumn Header="Sách" Width="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Sách"
+                                        Style="{StaticResource GridActionButtonStyle}"
+                                        Background="#FF4C60AF"
+                                        Width="50"
+                                        Click="Sachbtn_Click"
+                                        Tag="{Binding Id}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Sửa" Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource GridIconButtonStyle}"
+                                        Background="#FF00BCD4"
+                                        Width="30"
+                                        Height="30"
+                                        Click="EditImage_Click"
+                                        Tag="{Binding Id}">
+                                    <Image Source="/Images/Icons/edit.png" Width="16" Height="16" Stretch="Uniform"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Xóa" Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource GridIconButtonStyle}"
+                                        Background="#FFF44336"
+                                        Width="30"
+                                        Height="30"
+                                        Click="DeleteButton_Click"
+                                        Tag="{Binding Id}">
+                                    <Image Source="/Images/Icons/deleted.png" Width="16" Height="16" Stretch="Uniform"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- Footer Section -->
+        <Border Background="White" CornerRadius="5" BorderThickness="1" BorderBrush="#FFD3D3D3" 
+                Margin="20,0,20,10" Height="40" VerticalAlignment="Bottom">
+            <Grid>
+                <Label x:Name="tongSoKeSachlb" Content="Tổng số 0 kệ sách" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"
+                       FontSize="14"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
+                    <Label x:Name="tranglb" Content="Trang" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox x:Name="trangcb" Width="60" Margin="0,0,5,0" 
+                              SelectionChanged="trangcb_SelectionChanged"/>
+                    <Label x:Name="tongTranglb" Content="trên tổng số 0 trang" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

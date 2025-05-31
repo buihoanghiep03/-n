@@ -1,0 +1,2 @@
+MainPackage=F:\Đồ Án Tốt Nghiệp\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVienPackaping\bin\x86\Release\DoAnQLThuVienPackaping_1.0.5.0_x86.msix
+SymbolPackage=F:\Đồ Án Tốt Nghiệp\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVien\DoAnQLThuVienPackaping\obj\x86\Release\Symbols\DoAnQLThuVienPackaping_1.0.5.0_x86.appxsym
